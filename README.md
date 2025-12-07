@@ -145,3 +145,68 @@ The Nmap scan was performed on the target machine 10.09.99.255 to identify activ
 ![Nmap scan  (2)](https://github.com/user-attachments/assets/bd9dff81-8fc4-4031-99d2-f3af47663e43)
 ![Nmap scan  (3)](https://github.com/user-attachments/assets/8d84b2ed-16ce-43b0-9f49-f12e3f9b60a7)
 ![Nmap scan  (4)](https://github.com/user-attachments/assets/0cc62225-d251-481a-ac19-d26e4c9e4c8f)
+
+
+---
+
+### Task 2 :- 
+
+## ufw-firewall-configuration
+
+ This task involves setting up a basic firewall in a Linux system using UFW (Uncomplicated
+ Firewall). UFW is a user-friendly firewall tool that allows you to easily manage incoming and
+ outgoing network traffic.
+
+1. Install UFW
+   Most systems already have it installed, but you can install/enable it:
+    ```
+    sudo apt update
+    sudo apt install ufw -y
+   ```
+2. Enable UFW
+    Before enabling, allow SSH first — otherwise you may lock yourself out.
+   ```
+   sudo ufw allow ssh
+   ```
+   Now enable UFW:
+   ```
+   sudo ufw enable
+   ```
+3. Allow SSH Traffic
+    If not already allowed:
+   ```
+   sudo ufw allow 22/tcp
+   ```
+4. Deny HTTP Traffic (Port 80)
+   To block HTTP connections:
+   ```
+   sudo ufw deny 80/tcp
+   ```
+
+5. Check Firewall Status
+   ```
+   sudo ufw status numbered
+   ```
+6. Create `ufw_configuration.sh` Script
+   ```
+   nano ufw_configuration.sh
+   ```
+7. Paste the screept
+8. make the script executable
+   ```
+    chmod +x ufw_configuration.sh
+   ```
+9. run the script
+    ```
+    ./ufw_configuration.sh
+    ```
+---
+## Screenshot
+
+<img width="1294" height="823" alt="ufw config (1)" src="https://github.com/user-attachments/assets/6c435e74-8f30-4c33-aad3-afde6ab0440c" />
+<img width="1294" height="667" alt="ufw config (2)" src="https://github.com/user-attachments/assets/8646881a-d578-4a07-9704-becf94d41af2" />
+<img width="846" height="409" alt="ufw config (3)" src="https://github.com/user-attachments/assets/50c69768-abd1-42ef-a20b-7ec8d6b0b710" />
+
+
+
+
