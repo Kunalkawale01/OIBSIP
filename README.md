@@ -41,7 +41,6 @@ nmap 10.09.99.255
 445/tcp  open  microsoft-ds
 5432/tcp open  postgresql
 ```
-
 ---
 
 # 3. Service & Version Detection
@@ -58,7 +57,6 @@ nmap -sV 10.09.99.255
 445/tcp  open  microsoft-ds  SMB File Sharing
 5432/tcp open  postgresql    PostgreSQL DB 9.6.0 or later
 ```
-
 ---
 
 # Explanation of Each Open Port
@@ -110,22 +108,7 @@ nmap -p- $1
 #!/bin/bash
 nmap -sV $1
 ```
-
 ---
-
-# Sample Scan Report — `scan_results.txt`
-
-```
-Nmap scan report for 10.09.99.255
-Host is up.
-
-80/tcp   open  http          Microsoft IIS httpd 10.0
-135/tcp  open  msrpc         Microsoft Windows RPC
-139/tcp  open  netbios-ssn   Microsoft Windows netbios-ssn
-445/tcp  open  microsoft-ds  SMB file sharing
-5432/tcp open  postgresql    PostgreSQL 9.6.0 or later
-```
-
 ---
 
 ### Nmap Scan Explanation
@@ -154,4 +137,11 @@ The Nmap scan was performed on the target machine 10.09.99.255 to identify activ
 
  3. Overall Summary
      The scan results show that the target is a Windows-based system running a web server, RPC services, file sharing services, and a PostgreSQL database. These open ports reveal what services are available and help understand the system's network exposure.
+    
+---
+### Screenshot
 
+![Nmap scan  (1)](https://github.com/user-attachments/assets/20ec6b37-3d52-4250-8967-80657d88f085)
+![Nmap scan  (2)](https://github.com/user-attachments/assets/bd9dff81-8fc4-4031-99d2-f3af47663e43)
+![Nmap scan  (3)](https://github.com/user-attachments/assets/8d84b2ed-16ce-43b0-9f49-f12e3f9b60a7)
+![Nmap scan  (4)](https://github.com/user-attachments/assets/0cc62225-d251-481a-ac19-d26e4c9e4c8f)
