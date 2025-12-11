@@ -208,5 +208,135 @@ The Nmap scan was performed on the target machine 10.09.99.255 to identify activ
 <img width="846" height="409" alt="ufw config (3)" src="https://github.com/user-attachments/assets/50c69768-abd1-42ef-a20b-7ec8d6b0b710" />
 
 
+---
+### Task 3:- 
 
+## SQL Injection on DVWA (Low Security)
+
+### Steps to run this Task
+
+- STEP 1 — Go to Apache Web Directory
+
+Run:
+```
+cd /var/www/html
+```
+---
+- STEP 2 — Install Git (if not installed)
+```
+sudo apt install git -y
+```
+---
+- STEP 3 — Clone DVWA
+
+   ```
+  sudo git clone https://github.com/digininja/DVWA.git
+  ```
+
+After cloning, check contents:
+```
+ls /var/www/html
+```
+
+You should now see:
+```
+DVWA
+index.html
+```
+---
+- STEP 4 — Set Permissions
+```
+sudo chmod -R 777 DVWA
+```
+---
+- STEP 5 — Configure DVWA
+
+Go to config folder:
+```
+cd /var/www/html/DVWA/config
+```
+
+Copy config file:
+```
+sudo cp config.inc.php.dist config.inc.php
+```
+---
+- STEP 6 — Configure MySQL Database
+
+Start MySQL:
+```
+sudo service mysql start
+```
+Login:
+```
+sudo mysql -u root
+```
+
+Inside MySQL, run:
+```
+CREATE DATABASE dvwa;
+GRANT ALL PRIVILEGES ON dvwa.* TO 'dvwa'@'localhost' IDENTIFIED BY 'p@ssw0rd';
+FLUSH PRIVILEGES;
+EXIT;
+```
+---
+- STEP 7 — Open DVWA in Browser
+
+Now go to:
+```
+http://localhost/DVWA
+```
+OR (lowercase version):
+```
+http://localhost/dvwa
+```
+
+Login default:
+
+- Username: admin
+- Password: password
+---
+- STEP 8 - Set DVWA Security Level to Low
+
+Go to:
+```
+DVWA Security → Set to LOW → Submit
+```
+---
+- STEP 9 - Navigate to SQL Injection Module
+
+In DVWA:
+```
+Vulnerabilities → SQL Injection
+```
+You will see an input such as:
+```
+User ID:
+This is vulnerable.
+```
+---
+- STEP 10 - Perform SQL Injection (Low Security)
+  
+Using Browser (Basic Injection)
+Enter:
+```
+1' OR '1'='1
+```
+Click Submit.
+You should see all users dumped from the database.
+
+Another payload:
+```
+%' OR 1=1 #
+```
+---
+- STEP 11 -Screenshots
+
+  <img width="860" height="493" alt="Screenshot From 2025-12-11 16-16-59" src="https://github.com/user-attachments/assets/de19217a-2379-42d2-bc43-494037ff2921" />
+  <img width="871" height="745" alt="Screenshot From 2025-12-11 16-40-43" src="https://github.com/user-attachments/assets/fce7ea3e-aca5-4e1a-99a9-dc045ee858d7" />
+<img width="871" height="745" alt="Screenshot From 2025-12-11 16-41-13" src="https://github.com/user-attachments/assets/f98cfd24-43d4-4235-8605-c70d0ddb54f0" />
+<img width="871" height="745" alt="Screenshot From 2025-12-11 16-41-33" src="https://github.com/user-attachments/assets/0a1e61f2-6aae-4b8c-9bb6-722f5d59159b" />
+<img width="871" height="745" alt="Screenshot From 2025-12-11 16-41-59" src="https://github.com/user-attachments/assets/3c4f9ce7-1651-4715-9649-e6f3c72f8229" />
+<img width="817" height="504" alt="Screenshot From 2025-12-11 16-42-58" src="https://github.com/user-attachments/assets/6e706bf1-9bf7-4a79-bf06-690f1c703240" />
+<img width="863" height="593" alt="Screenshot From 2025-12-11 17-09-00" src="https://github.com/user-attachments/assets/6aeac0be-5605-4535-b664-7b929fd04254" />
 
